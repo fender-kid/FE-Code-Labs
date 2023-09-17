@@ -40,9 +40,15 @@ class Crypto {
         return cryptos.reduce((sum, crypto) => sum + crypto.getPrice(), 0) / cryptos.length;
     }
 
-    // Filter
-    static filterByPrice(cryptos, minPrice) {
+    static filterByMinPrice(cryptos, minPrice) {
+        // Uses an arrow function that takes a crypto object from the cryptos array.
+        // It calls the getPrice() method and checks if its greater than minPrice.
+        // It returns an array of Crypto objects that meet this condition.
         return cryptos.filter(cryptos => cryptos.getPrice() > minPrice);
+    }
+
+    static filterByMaxPrice(cryptos, maxPrice) {
+        return cryptos.filter(cryptos => cryptos.getPrice() < maxPrice);
     }
 }
 
@@ -151,5 +157,8 @@ console.log(groupByTickerInitial);
 const avgPrice = Crypto.averagePrice(cryptos);
 console.log(avgPrice);
 
-const filteredByPrice = Crypto.filterByPrice(cryptos, 2500);
-console.log(filteredByPrice);
+const expensiveCryptos = Crypto.filterByMinPrice(cryptos, 2500);
+console.log(expensiveCryptos);
+
+const cheapCryptos = Crypto.filterByMaxPrice(cryptos, 10);
+console.log(cheapCryptos);
