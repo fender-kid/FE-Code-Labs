@@ -111,3 +111,15 @@ Crypto.prototype.summary = function() {
 
 // Loops through the cryptos array and logs the crypto info in this format: Bitcoin (BTC): $50000
 cryptos.forEach(crypto => console.log(crypto.summary()));
+
+// Filter cryptos by name
+// This function takes a substring to filter by.
+// cryptos.filter creates a new array with the elements from the original that meet...
+// the filter condition specified in the callback function.
+function filterByName(substring) {
+    return cryptos.filter(crypto => crypto.getName().toLowerCase().includes(substring.toLowerCase()));
+}
+
+console.log(filterByName("coin")); // Return all cryptos with 'coin' in their name.
+console.log(filterByName("Bit")); // Return all cryptos with 'Bit' in their name.
+console.log(filterByName("cash")); // Return all cryptos with 'cash' in their name.
