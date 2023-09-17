@@ -28,6 +28,17 @@ class Crypto {
     setPrice(price) {
         this.price = price;
     }
+
+    // Static Methods
+    // Calculate average price of all cryptos in the list.
+    // Uses the reduce method to sum up the prices of all cryptos.
+    // (sum, crypto) => sum + crypto.getPrice() takes the running total & the current crypto object from the array.
+    // crypto.getPrice() gets the current price of that crypto.
+    // Then it adds that # to the total sum.
+    // cryptos.length is how we know what to divide the total sum by
+    static averagePrice(cryptos) {
+        return cryptos.reduce((sum, crypto) => sum + crypto.getPrice(), 0) / cryptos.length;
+    }
 }
 
 
@@ -88,16 +99,6 @@ const randomCrypto = cryptos[Math.floor(Math.random() * cryptos.length)];
 
 console.log(randomCrypto);
 
-// Calculate average price of all cryptos in the list.
-// Uses the reduce method to sum up the prices of all cryptos.
-// (sum, crypto) => sum + crypto.getPrice() takes the running total and th current crypto object from the array.
-// It calls crypto.getPrice() to get the current price of that crypto.
-// Then it adds that # to the total sum.
-// cryptos.length is how we know what to divide the total sum by
-const averagePrice = cryptos.reduce((sum, crypto) => sum + crypto.getPrice(), 0) / cryptos.length;
-
-console.log(averagePrice);
-
 // Filter the cryptos array.
 let majors = cryptos.filter(cryptos => cryptos.getPrice() > 1000);
 
@@ -125,12 +126,12 @@ console.log(filterByName("Bit")); // Return all cryptos with 'Bit' in their name
 console.log(filterByName("cash")); // Return all cryptos with 'cash' in their name.
 
 // Group by Ticker
-// Creates an empty object to store crypos by their tickers.
+// Creates an empty object to store crypos by the first letter of their ticker.
 const groupByTickerInitial = {};
 
 // Loop over each element in the cryptos array.
 cryptos.forEach(crypto => {
-    // Calls the get method adn uses the [0] to access the first letter of the ticker.
+    // Calls the get method and uses the [0] to access the first letter of the ticker.
     // Stores the first letter in the 'initial' variable.
     const initial = crypto.getTicker()[0];
     // Checks if 'groupByTickerInitial' already has a property of 'initial'
@@ -143,3 +144,6 @@ cryptos.forEach(crypto => {
 });
 
 console.log(groupByTickerInitial);
+
+const avgPrice = Crypto.averagePrice(cryptos);
+console.log(avgPrice);
