@@ -102,3 +102,12 @@ console.log(averagePrice);
 let majors = cryptos.filter(cryptos => cryptos.getPrice() > 1000);
 
 console.log(majors);
+
+// Extends the Crypto class with a summary method.
+// Uses getter methods inside an anonymous function to return the relevant info for each crypto.
+Crypto.prototype.summary = function() {
+    return `${this.getName()} (${this.getTicker()}): $${this.getPrice()}`;
+};
+
+// Loops through the cryptos array and logs the crypto info in this format: Bitcoin (BTC): $50000
+cryptos.forEach(crypto => console.log(crypto.summary()));
