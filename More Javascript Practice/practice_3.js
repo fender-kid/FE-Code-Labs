@@ -39,6 +39,11 @@ class Crypto {
     static averagePrice(cryptos) {
         return cryptos.reduce((sum, crypto) => sum + crypto.getPrice(), 0) / cryptos.length;
     }
+
+    // Filter
+    static filterByPrice(cryptos, minPrice) {
+        return cryptos.filter(cryptos => cryptos.getPrice() > minPrice);
+    }
 }
 
 
@@ -102,8 +107,6 @@ console.log(randomCrypto);
 // Filter the cryptos array.
 let majors = cryptos.filter(cryptos => cryptos.getPrice() > 1000);
 
-console.log(majors);
-
 // Extends the Crypto class with a summary method.
 // Uses getter methods inside an anonymous function to return the relevant info for each crypto.
 Crypto.prototype.summary = function() {
@@ -147,3 +150,6 @@ console.log(groupByTickerInitial);
 
 const avgPrice = Crypto.averagePrice(cryptos);
 console.log(avgPrice);
+
+const filteredByPrice = Crypto.filterByPrice(cryptos, 2500);
+console.log(filteredByPrice);
