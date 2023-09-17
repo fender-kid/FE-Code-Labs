@@ -65,3 +65,24 @@ console.log(car_one);
 for (item in car_one) {
     console.log(`${item}: ${car_one[item]}`);
 }
+
+// An array of car data.
+const carDataArray = [
+    { make: 'Tesla', model: 'Model 3', year: 2024, color: 'blue' },
+    { make: 'Ford', model: 'F-150', year: 2022, color: 'red' },
+    { make: 'Toyota', model: 'Camry', year: 2021, color: 'silver' },
+    { make: 'BMW', model: '3 Series', year: 2020, color: 'black' },
+    { make: 'Honda', model: 'Civic', year: 2019, color: 'white' },
+    { make: 'Chevrolet', model: 'Tahoe', year: 2023, color: 'green' },
+    { make: 'Audi', model: 'A4', year: 2021, color: 'gray' },
+    { make: 'Mercedes-Benz', model: 'C-Class', year: 2019, color: 'navy' },
+    { make: 'Volkswagen', model: 'Jetta', year: 2018, color: 'yellow' },
+    { make: 'Hyundai', model: 'Elantra', year: 2022, color: 'orange' }
+  ];
+  
+// Create an array of Car objects.
+const cars = carDataArray.map(data => new Car(data.make, data.model, data.year, data.color));
+
+for (car of cars) {
+    car.carDetails();
+}
