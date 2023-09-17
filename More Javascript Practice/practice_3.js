@@ -123,3 +123,23 @@ function filterByName(substring) {
 console.log(filterByName("coin")); // Return all cryptos with 'coin' in their name.
 console.log(filterByName("Bit")); // Return all cryptos with 'Bit' in their name.
 console.log(filterByName("cash")); // Return all cryptos with 'cash' in their name.
+
+// Group by Ticker
+// Creates an empty object to store crypos by their tickers.
+const groupByTickerInitial = {};
+
+// Loop over each element in the cryptos array.
+cryptos.forEach(crypto => {
+    // Calls the get method adn uses the [0] to access the first letter of the ticker.
+    // Stores the first letter in the 'initial' variable.
+    const initial = crypto.getTicker()[0];
+    // Checks if 'groupByTickerInitial' already has a property of 'initial'
+    // If not, an empty array is created and assigned to 'groupByTickerInitial'
+    if (!groupByTickerInitial[initial]) {
+        groupByTickerInitial[initial] = [];
+    }
+    // Current 'crypto' obj is pushed into the array identified by its initial letter in 'groupByTickerInitial'
+    groupByTickerInitial[initial].push(crypto);
+});
+
+console.log(groupByTickerInitial);
