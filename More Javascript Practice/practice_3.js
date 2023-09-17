@@ -41,7 +41,7 @@ class Crypto {
     }
 
     static filterByMinPrice(cryptos, minPrice) {
-        // Uses an arrow function that takes a crypto object from the cryptos array.
+        // Uses an arrow function that takes an object from the cryptos array.
         // It calls the getPrice() method and checks if its greater than minPrice.
         // It returns an array of Crypto objects that meet this condition.
         return cryptos.filter(cryptos => cryptos.getPrice() > minPrice);
@@ -49,6 +49,10 @@ class Crypto {
 
     static filterByMaxPrice(cryptos, maxPrice) {
         return cryptos.filter(cryptos => cryptos.getPrice() < maxPrice);
+    }
+
+    static randomCrypto(cryptos) {
+        return cryptos[Math.floor(Math.random() * cryptos.length)];
     }
 }
 
@@ -105,14 +109,6 @@ cryptoDataArray.forEach(data => {
     cryptos.push(newCrypto);
 });
 
-// Select a random car from the array.
-const randomCrypto = cryptos[Math.floor(Math.random() * cryptos.length)];
-
-console.log(randomCrypto);
-
-// Filter the cryptos array.
-let majors = cryptos.filter(cryptos => cryptos.getPrice() > 1000);
-
 // Extends the Crypto class with a summary method.
 // Uses getter methods inside an anonymous function to return the relevant info for each crypto.
 Crypto.prototype.summary = function() {
@@ -162,3 +158,6 @@ console.log(expensiveCryptos);
 
 const cheapCryptos = Crypto.filterByMaxPrice(cryptos, 10);
 console.log(cheapCryptos);
+
+const randomCrypto = Crypto.randomCrypto(cryptos);
+console.log(randomCrypto);
