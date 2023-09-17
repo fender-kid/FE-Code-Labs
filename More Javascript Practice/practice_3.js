@@ -83,3 +83,22 @@ cryptoDataArray.forEach(data => {
     cryptos.push(newCrypto);
 });
 
+// Select a random car from the array.
+const randomCrypto = cryptos[Math.floor(Math.random() * cryptos.length)];
+
+console.log(randomCrypto);
+
+// Calculate average price of all cryptos in the list.
+// Uses the reduce method to sum up the prices of all cryptos.
+// (sum, crypto) => sum + crypto.getPrice() takes the running total and th current crypto object from the array.
+// It calls crypto.getPrice() to get the current price of that crypto.
+// Then it adds that # to the total sum.
+// cryptos.length is how we know what to divide the total sum by
+const averagePrice = cryptos.reduce((sum, crypto) => sum + crypto.getPrice(), 0) / cryptos.length;
+
+console.log(averagePrice);
+
+// Filter the cryptos array.
+let majors = cryptos.filter(cryptos => cryptos.getPrice() > 1000);
+
+console.log(majors);
