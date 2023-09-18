@@ -54,6 +54,15 @@ class Crypto {
     static randomCrypto(cryptos) {
         return cryptos[Math.floor(Math.random() * cryptos.length)];
     }
+
+    // Filter cryptos by name
+    // This function takes a substring to filter by.
+    // cryptos.filter creates a new array with the elements from the original that meet...
+    // the filter condition specified in the callback function.
+    static filterByName(substring) {
+        return cryptos.filter(crypto => crypto.getName().toLowerCase().includes(substring.toLowerCase()));
+    }
+
 }
 
 
@@ -116,19 +125,8 @@ Crypto.prototype.summary = function() {
 };
 
 // Loops through the cryptos array and logs the crypto info in this format: Bitcoin (BTC): $50000
-cryptos.forEach(crypto => console.log(crypto.summary()));
-
-// Filter cryptos by name
-// This function takes a substring to filter by.
-// cryptos.filter creates a new array with the elements from the original that meet...
-// the filter condition specified in the callback function.
-function filterByName(substring) {
-    return cryptos.filter(crypto => crypto.getName().toLowerCase().includes(substring.toLowerCase()));
-}
-
-console.log(filterByName("coin")); // Return all cryptos with 'coin' in their name.
-console.log(filterByName("Bit")); // Return all cryptos with 'Bit' in their name.
-console.log(filterByName("cash")); // Return all cryptos with 'cash' in their name.
+// Commented this out just to make my console a bit cleaner when practicing.
+// cryptos.forEach(crypto => console.log(crypto.summary()));
 
 // Group by Ticker
 // Creates an empty object to store crypos by the first letter of their ticker.
@@ -161,3 +159,9 @@ console.log(cheapCryptos);
 
 const randomCrypto = Crypto.randomCrypto(cryptos);
 console.log(randomCrypto);
+
+const coinCryptos = Crypto.filterByName('coin');
+console.log(coinCryptos);
+
+const cashCryptos = Crypto.filterByName('cash');
+console.log(cashCryptos);
