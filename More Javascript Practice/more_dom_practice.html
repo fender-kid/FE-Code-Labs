@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Practice</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Welcome to the DOM Practice Page</h1>
+
+    <div id="container">
+        <p class="text">This is a paragraph.</p>
+        <p class="text highlight">This is a highlighted paragraph.</p>
+        <p class="text">This is another paragraph.</p>
+    </div>
+
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <button id="button1" onclick="goGray()">Click Me</button>
+
+    <script>
+        function goGray() {
+            document.body.style.backgroundColor = 'gray';
+        }
+
+    </script>
+</body>
+</html>
