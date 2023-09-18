@@ -26,10 +26,21 @@
 
     <button id="button1" onclick="goGray()">Click Me</button>
 
+    <button id="button2" onclick="goRed()">Click Me</button>
+
     <script>
+        //Changes bg color on button click
         function goGray() {
             document.body.style.backgroundColor = 'gray';
         }
+
+        const colorButton = document.querySelector('#button2');
+        // changes the background color on button click
+        colorButton.onclick = function() {
+            document.body.style.backgroundColor = 'red';
+        }
+        // Changes background color when the mouse hovers over the button.
+        colorButton.onmouseenter = goGray;
 
     </script>
 </body>
