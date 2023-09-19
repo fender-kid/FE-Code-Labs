@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises</title>
+</head>
+<body>
+    
+    <!-- exercise 1 -->
+    <div id="myDiv">This is a div</div>
+    <p>First paragraph.</p>
+    <p>Second paragraph.</p>
+
+    <script>
+
+        // Select the element with an ID of "myDiv" and change its background color to "lightblue"
+        const myDiv = document.getElementById("myDiv");
+        myDiv.style.backgroundColor = "lightblue";
+
+        // Select all the paragraph elements on the page and log their inner text
+        const paragraphs = document.querySelectorAll("p");
+        
+        paragraphs.forEach((paragraph) => {
+        console.log(paragraph.innerText);
+        });
+
+    </script>
+
+</body>
+</html>

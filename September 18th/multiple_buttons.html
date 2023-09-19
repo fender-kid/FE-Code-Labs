@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Buttons DOM Exercise</title>
+</head>
+<body>
+
+    <!-- Adding three buttons with unique text -->
+    <button class="btn_onclick">Button 1</button>
+    <button class="btn_onclick">Button 2</button>
+    <button class="btn_onclick">Button 3</button>
+
+    <script>
+        // Select all buttons with the class 'btn_onclick'
+        const buttons = document.querySelectorAll('.btn_onclick');
+
+        // Array to hold colors for each button
+        const colors = ['red', 'green', 'blue'];
+
+        // Loop over each button and add onclick event
+        buttons.forEach((button, index) => {
+            button.onclick = function() {
+                // Change the document's background color
+                document.body.style.backgroundColor = colors[index];
+            };
+        });
+    </script>
+
+</body>
+</html>
